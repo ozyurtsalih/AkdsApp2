@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "393503163948",
+    "firebase_url": "https://akdsappv2.firebaseio.com",
+    "project_id": "akdsappv2",
+    "storage_bucket": "akdsappv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393503163948:android:f38a081f86cd4790ddf389",
+        "android_client_info": {
+          "package_name": "com.example.akdsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393503163948-hg66fbrq6u5afsd2vnpvm9uqm673skla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.akdsapp",
+            "certificate_hash": "b1ba80b9ee3cdcfad4c3b60a3973fbe492d23096"
+          }
+        },
+        {
+          "client_id": "393503163948-n13e89kpqaho312tcc8aks9pnf8m0q0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4knC5OHrVcqHJQnym62A619RjPfGTmZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393503163948-n13e89kpqaho312tcc8aks9pnf8m0q0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

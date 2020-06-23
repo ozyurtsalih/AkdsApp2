@@ -90,8 +90,6 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_tahlils"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="409dp"
             android:layout_height="630dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
