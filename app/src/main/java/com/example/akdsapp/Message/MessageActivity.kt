@@ -58,7 +58,7 @@ class MessageActivity : AppCompatActivity() {
 
             }
 
-            @SuppressLint("WrongConstant")
+
             override fun onDataChange(p0: DataSnapshot) {
                 for(teksohbetOdasi in p0!!.children){
                     var oAnkiSohbetOdasi=ChatRoom()
@@ -94,9 +94,17 @@ Log.e("test",oAnkiSohbetOdasi.toString())
 
     }
     private fun sohbetOdalariListele(){
-        var adapter = ChatRoomRcyViewAdapter(tumsohbetOdalari)
+        var adapter = ChatRoomRcyViewAdapter(this@MessageActivity,tumsohbetOdalari)
         rvSohbetOdalari.adapter=adapter
         rvSohbetOdalari.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+
+    }
+    fun sohbetOdasiSil(silinecekOdaid:String){
+        var ref= FirebaseDatabase.getInstance().reference
+        ref.child("ChatRoom").child(silinecekOdaid)
+            .removeValue()
+        Toast.makeText(this,"sohbet odasi silindi",Toast.LENGTH_SHORT).show()
+        init()
 
     }
 }

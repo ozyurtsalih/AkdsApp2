@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tests.TestsActivity"> </activity>
+        <activity android:name=".Blog.NewBlogsActivity"></activity>
+        <activity android:name=".Message.MessageRoomActivity" />
+        <activity android:name=".Tests.TestsActivity" />
         <activity android:name=".Register.RegisterActivity" />
         <activity android:name=".Adds.AddsActivity" />
         <activity android:name=".Blog.BlogActivity" />
-        <activity android:name=".Login.LoginActivity" >
+        <activity android:name=".Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Message.MessageActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/mainContainer"
@@ -42,20 +43,6 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imgLogo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="4dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imgTabDirectMessage"
-                            app:layout_constraintStart_toEndOf="@+id/imgTabCamera"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_launcher_foreground" />
-
-                        <ImageView
                             android:id="@+id/imgTabCamera"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
@@ -65,19 +52,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_logo" />
-
-                        <ImageView
-                            android:id="@+id/imgTabDirectMessage"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_settings" />
+                            app:srcCompat="@drawable/abc_vector_test" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -89,33 +64,39 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcSonuc"
-            android:layout_width="409dp"
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="296dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            android:layout_height="630dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerview_tahlils"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rwMesajlar"
+            android:layout_width="408dp"
+            android:layout_height="582dp"
+            android:layout_marginTop="7dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appbar" />
-
-
-        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimary"
-            app:itemTextColor="@color/white"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:menu="@menu/bottom_navigation_menu"
-            app:layout_constraintStart_toStartOf="parent">
-
-        </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

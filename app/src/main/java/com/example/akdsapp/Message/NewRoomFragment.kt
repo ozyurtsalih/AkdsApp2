@@ -26,7 +26,7 @@ import java.util.*
 
 class NewRoomFragment : DialogFragment() {
 
-lateinit var chatRoomName: EditText
+    lateinit var chatRoomName: EditText
     lateinit var chatRoomAdd: Button
 
 
@@ -48,7 +48,7 @@ lateinit var chatRoomName: EditText
                 newRoom.chatRoomName=chatRoomName.text.toString()
                 newRoom.room_id=roomId
                 ref.child("ChatRoom").child(roomId.toString()).setValue(newRoom)
-var MesajId=ref.child("ChatRoom").push().key
+                var MesajId=ref.child("ChatRoom").push().key
                 var karsilamaMesaji=RoomMessages()
                 karsilamaMesaji.mesaj="sohbet odasına hoşgeldiniz"
                 karsilamaMesaji.timestamp=getMesajTarih()

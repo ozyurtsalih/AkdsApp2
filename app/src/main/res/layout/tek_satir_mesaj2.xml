@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/username_textview_new_message"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:text="Mesaj"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageview_new_message"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/username_textview_new_message"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yazar"
+        app:layout_constraintBottom_toTopOf="@+id/username_textview_new_message"
+        tools:layout_editor_absoluteX="276dp" />
+
+    <TextView
+        android:id="@+id/tvTarih"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tarih"
+        app:layout_constraintTop_toBottomOf="@+id/username_textview_new_message"
+        tools:layout_editor_absoluteX="191dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

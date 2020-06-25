@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         verifyUserIsLoggedIn()
        // val adapter=GroupAdapter<GroupieViewHolder>()
 
-        fetchUsers()
+       //fetchUsers()
 
 
         imgTabDirectMessage.setOnClickListener {FirebaseAuth.getInstance().signOut()

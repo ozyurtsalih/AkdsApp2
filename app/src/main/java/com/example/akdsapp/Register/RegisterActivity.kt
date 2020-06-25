@@ -32,10 +32,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         val regBtn= findViewById<View>(R.id.regBtn)
         mDatabase=FirebaseDatabase.getInstance().getReference("Users")
-regBtn.setOnClickListener ( View.OnClickListener { view -> registerUser()  })
+        regBtn.setOnClickListener ( View.OnClickListener { view -> registerUser()  })
         selectphoto_button_register.setOnClickListener {
             Log.d(TAG, "Try to show photo selector")
-
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, 0)
@@ -76,7 +75,7 @@ regBtn.setOnClickListener ( View.OnClickListener { view -> registerUser()  })
                                 Log.d(TAG, "Failed to upload image to storage: ${it.message}")
                             }
                     }else{
-                        mDatabase.child(uid).child("imgUrl").setValue("")
+                        mDatabase.child(uid).child("imgUrl").setValue("https://firebasestorage.googleapis.com/v0/b/akdsappv2.appspot.com/o/images%2F2a240787-569d-4efb-878b-01b483a11405?alt=media&token=687ef594-7ebe-43a4-bda9-d359673a9b1f")
                     }
 
 

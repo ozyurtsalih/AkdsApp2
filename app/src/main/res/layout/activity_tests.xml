@@ -128,6 +128,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/cw1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -136,14 +137,14 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/ic_settings"
+                        android:background="@drawable/ic_karaciger"
                         android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Add"
+                        android:text="Karaciğerim Nasıl?"
                         android:textStyle="bold" />
 
                     <View
@@ -157,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Check your bank activities"
+                        android:text="ALT, AST ve GGT"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>
@@ -179,14 +180,14 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/ic_settings"
+                        android:background="@drawable/ic_kansizlik"
                         android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Links"
+                        android:text="Kansızlığım Var mı?"
                         android:textStyle="bold" />
 
                     <View
@@ -200,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Check your bank activities"
+                        android:text="Hb, Hct ve RBC"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>
@@ -237,14 +238,14 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/ic_settings"
+                        android:background="@drawable/ic_vitamin"
                         android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Add"
+                        android:text="Vitaminlerim Eksik Mi?"
                         android:textStyle="bold" />
 
                     <View
@@ -258,7 +259,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Check your bank activities"
+                        android:text="B12, Folik Asit, D"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>
@@ -280,14 +281,14 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/ic_settings"
+                        android:background="@drawable/ic_kolestrol"
                         android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Links"
+                        android:text="Kolestrolum  Var mı?"
                         android:textStyle="bold" />
 
                     <View
@@ -301,7 +302,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Check your bank activities"
+                        android:text="Trigliserit, Kolesterol"
                         android:textColor="@android:color/darker_gray" />
 
                 </LinearLayout>

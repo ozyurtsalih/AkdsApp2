@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loginRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/selectphoto_imageview_register"
+            android:layout_width="360dp"
+            android:layout_height="267dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_home"
+            app:civ_border_color="@color/siyah"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/golgelik1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="50dp"
+            android:background="@color/golgelik"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></View>
+
+        <Button
+            android:id="@+id/regBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_button"
+            android:text="EKLE"
+            android:textColor="@color/sonukmavi"
+            app:layout_constraintBottom_toTopOf="@+id/golgelik1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/selectphoto_button_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="resim seç"
+            app:layout_constraintBottom_toBottomOf="@+id/selectphoto_imageview_register"
+            app:layout_constraintEnd_toEndOf="@+id/selectphoto_imageview_register"
+            app:layout_constraintStart_toStartOf="@+id/selectphoto_imageview_register"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ettitle"
+            android:layout_width="361dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectphoto_imageview_register" />
+
+        <EditText
+            android:id="@+id/etdesc"
+            android:layout_width="355dp"
+            android:layout_height="225dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Açıklama"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ettitle" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="574dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
