@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             })
 
         }else {
-            Toast.makeText(this, "Please fill up the CredentiaDls :|", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please fill up the Credentials :|", Toast.LENGTH_SHORT).show()
         }
     }
 }
