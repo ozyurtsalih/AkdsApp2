@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  >
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginRoot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/selectphoto_imageview_register"
             android:layout_width="150dp"
             android:layout_height="150dp"
 
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_home"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_logo"
             app:civ_border_color="@color/siyah"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,89 +29,65 @@
 
         <EditText
             android:id="@+id/emailTxt"
-            android:layout_width="0dp"
+            android:layout_width="379dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+
             android:background="@drawable/register_edit_text"
             android:ems="10"
             android:hint="E-Posta"
-
             android:padding="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
-
-        <EditText
-            android:id="@+id/passwordTxt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/register_edit_text"
-            android:ems="10"
-            android:hint="Şifre"
-
-            android:padding="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
-
-        <EditText
-            android:id="@+id/nameTxt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/register_edit_text"
-            android:ems="10"
-            android:hint="Ad"
-
-            android:padding="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selectphoto_imageview_register" />
 
-        <Button
-            android:id="@+id/btnIleri"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:layout_width="379dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="164dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/register_button"
-            android:enabled="false"
-            android:text="KAYDOL"
-            android:textAllCaps="false"
-            android:textColor="@color/sonukmavi"
+            android:layout_marginTop="16dp"
+
+            android:background="@drawable/register_edit_text"
+            android:ems="10"
+            android:hint="Şifre"
+            android:padding="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+            app:layout_constraintTop_toBottomOf="@+id/emailTxt" />
+
+        <EditText
+            android:id="@+id/nameTxt"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:background="@drawable/register_edit_text"
+            android:ems="10"
+            android:hint="Ad"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
 
         <View
             android:id="@+id/golgelik1"
-            android:layout_width="0dp"
+            android:layout_width="411dp"
             android:layout_height="2dp"
-            android:layout_marginBottom="50dp"
             android:background="@color/golgelik"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></View>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regBtn"
+            app:layout_constraintVertical_bias="0.85"></View>
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
             android:text="Hesabın zaten var mı?"
-            app:layout_constraintEnd_toStartOf="@+id/tvGirisYap"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/golgelik1" />
 
@@ -118,28 +95,28 @@
             android:id="@+id/tvGirisYap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginTop="16dp"
             android:text="Giriş Yap"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/golgelik1" />
+            app:layout_constraintHorizontal_bias="0.164"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/golgelik1"
+            app:layout_constraintVertical_bias="0.52" />
 
         <Button
             android:id="@+id/regBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/register_button"
             android:text="KAYDOL"
             android:textColor="@color/sonukmavi"
-            app:layout_constraintBottom_toTopOf="@+id/golgelik1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnIleri"
-            app:layout_constraintVertical_bias="0.268" />
+            app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
 
-        <Button
+        <TextView
             android:id="@+id/selectphoto_button_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +124,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/selectphoto_imageview_register"
             app:layout_constraintEnd_toEndOf="@+id/selectphoto_imageview_register"
             app:layout_constraintStart_toStartOf="@+id/selectphoto_imageview_register"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/selectphoto_imageview_register" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,10 +134,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="366dp">
 
     </FrameLayout>
 

@@ -52,7 +52,7 @@ class KaracigerFragment : DialogFragment() {
         val user = mAuth.currentUser
         val uid = user!!.uid
         btnkaraciger.setOnClickListener {
-            if(!altName.text.isNullOrEmpty()){
+            if(!altName.text.isNullOrEmpty() && !astName.text.isNullOrEmpty() && !ggtName.text.isNullOrEmpty()){
                 var ref = FirebaseDatabase.getInstance().reference
                 var tahlild=mDatabase.push().key
                 var newTahlil = Tahlils()
@@ -73,7 +73,7 @@ class KaracigerFragment : DialogFragment() {
                 dialog?.dismiss()
             }else
             {
-                Toast.makeText(activity,"sohbet odası adını yazınız", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Boş alan bırakılamaz", Toast.LENGTH_SHORT).show()
             }
         }
 

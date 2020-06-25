@@ -42,7 +42,6 @@ class KansizlikFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         mDatabase=FirebaseDatabase.getInstance().getReference("Tahlils")
         var view = inflater!!.inflate(R.layout.fragment_kansizlik, container, false )
         altName= view.findViewById(R.id.altTxt)
@@ -52,7 +51,7 @@ class KansizlikFragment : DialogFragment() {
         val user = mAuth.currentUser
         val uid = user!!.uid
         btnkaraciger.setOnClickListener {
-            if(!altName.text.isNullOrEmpty()){
+            if(!altName.text.isNullOrEmpty() && !astName.text.isNullOrEmpty() && !ggtName.text.isNullOrEmpty() ){
                 var ref = FirebaseDatabase.getInstance().reference
                 var tahlild=mDatabase.push().key
                 var newTahlil = Tahlils()
@@ -66,21 +65,17 @@ class KansizlikFragment : DialogFragment() {
                 newTahlil.type="Kansızlık Testi"
                 newTahlil.risksonuc="normal, az riskli, riskli, çok riskli"
                 newTahlil.tarih=getMesajTarih()
-                    mDatabase.child(tahlild.toString()).setValue(newTahlil)
-
+                mDatabase.child(tahlild.toString()).setValue(newTahlil)
                 Toast.makeText(activity,"Test başarıyla oluşturuldu ", Toast.LENGTH_SHORT).show()
-
                 dialog?.dismiss()
-            }else
+            }
+            else
             {
-                Toast.makeText(activity,"sohbet odası adını yazınız", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Boş alan bırakılamaz", Toast.LENGTH_SHORT).show()
             }
         }
-
         return view
-
     }
-
     private fun getMesajTarih() :String{
         var sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale("tr"))
         return sdf.format(Date())

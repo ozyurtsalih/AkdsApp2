@@ -31,17 +31,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavigationView()
         verifyUserIsLoggedIn()
-       // val adapter=GroupAdapter<GroupieViewHolder>()
-
-       //fetchUsers()
-
 
         imgTabDirectMessage.setOnClickListener {FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)}
-
-       // fetchUsers()
 
     }
     private fun verifyUserIsLoggedIn() {
@@ -67,7 +61,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 val adapter = GroupAdapter<GroupieViewHolder>()
-
                 p0.children.forEach {
                     Log.d("NewMessage", it.toString())
                     val user = it.getValue(Users::class.java)
@@ -75,10 +68,8 @@ class MainActivity : AppCompatActivity() {
                         adapter.add(UserItem(user))
                     }
                 }
-
                 recyclerview_tahlils.adapter = adapter
             }
-
             override fun onCancelled(p0: DatabaseError) {
 
             }
@@ -88,10 +79,8 @@ class MainActivity : AppCompatActivity() {
 class UserItem(val user: Users): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.username_textview_new_message.text = user.Name
-
         Picasso.get().load(user.imgUrl).into(viewHolder.itemView.imageview_new_message)
     }
-
     override fun getLayout(): Int {
         return R.layout.tahlils_row
     }

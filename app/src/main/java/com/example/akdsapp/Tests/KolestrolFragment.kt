@@ -47,12 +47,12 @@ class KolestrolFragment : DialogFragment() {
         var view = inflater!!.inflate(R.layout.fragment_kolestrol, container, false )
         altName= view.findViewById(R.id.altTxt)
         astName= view.findViewById(R.id.astTxt)
-        ggtName= view.findViewById(R.id.ggtTxt)
+
         btnkaraciger=view.findViewById(R.id.btnKaraciger)
         val user = mAuth.currentUser
         val uid = user!!.uid
         btnkaraciger.setOnClickListener {
-            if(!altName.text.isNullOrEmpty()){
+            if(!altName.text.isNullOrEmpty()&& !astName.text.isNullOrEmpty() && !ggtName.text.isNullOrEmpty()){
                 var ref = FirebaseDatabase.getInstance().reference
                 var tahlild=mDatabase.push().key
                 var newTahlil = Tahlils()
@@ -63,7 +63,7 @@ class KolestrolFragment : DialogFragment() {
                 newTahlil.dgr1=altName.text.toString()
                 newTahlil.dgr2=astName.text.toString()
                 newTahlil.dgr3=ggtName.text.toString()
-                newTahlil.type="Kolestrol Testi"
+                newTahlil.type="Kolesterol Testi"
                 newTahlil.risksonuc="normal, az riskli, riskli, çok riskli"
                 newTahlil.tarih=getMesajTarih()
                     mDatabase.child(tahlild.toString()).setValue(newTahlil)
@@ -73,7 +73,7 @@ class KolestrolFragment : DialogFragment() {
                 dialog?.dismiss()
             }else
             {
-                Toast.makeText(activity,"sohbet odası adını yazınız", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Boş alan bırakılamaz", Toast.LENGTH_SHORT).show()
             }
         }
 
