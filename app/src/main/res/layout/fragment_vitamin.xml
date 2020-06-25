@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="172dp"
-        android:layout_height="174dp"
+        android:layout_width="117dp"
+        android:layout_height="110dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_karaciger" />
+        app:srcCompat="@drawable/ic_vitamin" />
 
     <EditText
         android:id="@+id/altTxt"
@@ -23,7 +23,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/register_edit_text"
         android:ems="10"
-        android:hint="ALT"
+        android:hint="Folik"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/register_edit_text"
         android:ems="10"
-        android:hint="AST"
+        android:hint="B Vitamin"
         android:inputType="text"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/register_edit_text"
         android:ems="10"
-        android:hint="GGT"
+        android:hint="B12"
         android:inputType="textPassword"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,8 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@drawable/register_button"
         android:text="GÖNDER"
+        android:background="@drawable/register_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

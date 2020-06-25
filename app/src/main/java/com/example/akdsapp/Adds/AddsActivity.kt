@@ -30,8 +30,10 @@ class AddsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adds)
         setupNavigationView()
+        //Kullanıcıya ait sonuçları listelemek için kullanılan fonksiyonu çağırıyoruz.
         fetchUsers()
     }
+    // Navigasyon menusu fonksiyonu
     fun setupNavigationView(){
         BottomnavigationViewHelper.setupBottomNavigationView(bottomNavigationView)
         BottomnavigationViewHelper.setupNavigation(this,bottomNavigationView)
@@ -42,7 +44,9 @@ class AddsActivity : AppCompatActivity() {
     private fun fetchUsers() {
        //val user = mAuth.currentUser
        // val uid = user!!.uid
+        // İlgili Kullanıcının verisini çağırıyoruz.
         val userid= FirebaseAuth.getInstance().currentUser?.uid
+        // sadece o anki kullanıcıya ait tahlil sonuçları id ile karşılaştırdık.
         val ref = FirebaseDatabase.getInstance().getReference("Tahlils").orderByChild("uid").equalTo(userid)
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
 

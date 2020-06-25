@@ -21,6 +21,21 @@ class TestsActivity : AppCompatActivity() {
             var dialog= KaracigerFragment()
             dialog.show(supportFragmentManager,"goster")
         }
+        CW2.setOnClickListener {
+            var dialog= KansizlikFragment()
+            dialog.show(supportFragmentManager,"goster")
+        }
+
+        CW3.setOnClickListener {
+            var dialog= VitaminFragment()
+            dialog.show(supportFragmentManager,"goster")
+        }
+
+        CW4.setOnClickListener {
+            var dialog= KolestrolFragment()
+            dialog.show(supportFragmentManager,"goster")
+        }
+
 
     }
 
