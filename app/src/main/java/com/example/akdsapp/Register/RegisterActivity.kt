@@ -48,18 +48,26 @@ class RegisterActivity : AppCompatActivity() {
         val emailTxt = findViewById<View>(R.id.emailTxt) as EditText
         val passwordTxt = findViewById<View>(R.id.passwordTxt) as EditText
         val nameTxt = findViewById<View>(R.id.nameTxt) as EditText
+        val yasTxt= findViewById<View>(R.id.yasTxt2) as EditText
 
         var email = emailTxt.text.toString()
         var password = passwordTxt.text.toString()
         var name = nameTxt.text.toString()
+        var yas = yasTxt.text.toString()
 
-        if (!email.isEmpty() && !password.isEmpty() && !name.isEmpty()) {
+        if (!email.isEmpty() && !password.isEmpty() && !name.isEmpty() && !yas.isEmpty() ) {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val user = mAuth.currentUser
                     val uid = user!!.uid
                     mDatabase.child(uid).child("Name").setValue(name)
                     mDatabase.child(uid).child("uid").setValue(uid)
+                    mDatabase.child(uid).child("Yas").setValue(yas)
+                    mDatabase.child(uid).child("Mail").setValue(user.email)
+                    mDatabase.child(uid).child("Medya").setValue("")
+                    mDatabase.child(uid).child("Telephone").setValue("")
+                    mDatabase.child(uid).child("Unvan").setValue("")
+                    mDatabase.child(uid).child("Bio").setValue("")
                     //uploadImageToFirebaseStorage()
                     if (selectedPhotoUri != null) {
                         val filename = UUID.randomUUID().toString()

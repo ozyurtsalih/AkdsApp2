@@ -33,6 +33,7 @@ class BottomnavigationViewHelper {
                                 val intent = Intent(context, MainActivity::class.java).addFlags(
                                     Intent.FLAG_ACTIVITY_NO_ANIMATION)
                                 context.startActivity(intent)
+
                                 return true
 
 
