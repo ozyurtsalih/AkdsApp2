@@ -63,6 +63,20 @@ class KaracigerFragment : DialogFragment() {
                 newTahlil.dgr1=altName.text.toString()
                 newTahlil.dgr2=astName.text.toString()
                 newTahlil.dgr3=ggtName.text.toString()
+                ///NOT JAVA FUZZY KÜTÜPHANESİNİ ÇALIŞTIRAMADIM TÜM AYARLAMALARA RAĞMEN
+                /*String fileName = "karacigerfuzzy.fcl";
+                FIS fis = FIS.load(in, true);
+
+                // Set inputs
+                fis.setVariable("dgr1", alt);
+                fis.setVariable("dgr2", ast);
+                fis.setVariable("dgr3", ggt);
+                //Çalıştırma
+                fis.evaluate();
+                val risksonuc = fis.getFunctionBlock("fuzzyKaraciger").getVariable("Risk");
+
+                */
+
                 newTahlil.type="Karaciğer Testi"
                 newTahlil.risksonuc="normal, az riskli, riskli, çok riskli"
                 newTahlil.tarih=getMesajTarih()
