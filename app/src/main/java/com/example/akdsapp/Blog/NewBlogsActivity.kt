@@ -86,7 +86,7 @@ class NewBlogsActivity : AppCompatActivity() {
             mDatabase.child(blogkey!!).child("imgUrl").setValue("https://firebasestorage.googleapis.com/v0/b/akdsappv2.appspot.com/o/images%2F2a240787-569d-4efb-878b-01b483a11405?alt=media&token=687ef594-7ebe-43a4-bda9-d359673a9b1f")
         }
 
-        Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Kayıt Başarılı :)", Toast.LENGTH_LONG).show()
 
 
     }
