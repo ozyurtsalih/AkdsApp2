@@ -1,0 +1,62 @@
+FUNCTION_BLOCK fuzzyKaraciger// Block definition (there may be more than one block per file)
+
+VAR_INPUT				// Giriş değişkenleri
+	Alt : REAL;
+	Ast : REAL;
+	Ggt : REAL;
+END_VAR
+
+VAR_OUTPUT				// Çıkış değişkeni
+	Risk : REAL;
+END_VAR
+
+FUZZIFY Alt			// Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}
+	TERM Düsük := (0, 1) (13, 0) ;
+	TERM Ortalama := (1, 0) (13,1) (23,1) (43,0);
+	TERM Yüksek := (23, 0) (43, 1);
+END_FUZZIFY
+
+FUZZIFY Ast		// Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}
+	TERM Düsük := (0, 1) (13, 0) ;
+	TERM Ortalama := (1, 0) (13,1) (23,1) (35,0);
+	TERM Yüksek := (23, 0) (35, 1);
+END_FUZZIFY
+
+FUZZIFY Ggt		// Fuzzify input variable 'service': {'poor', 'good' , 'excellent'}
+	TERM Düsük := (0, 1) (15, 0) ;
+	TERM Ortalama := (1, 0) (15,1) (27,1) (50,0);
+	TERM Yüksek := (2, 0) (50, 1);
+END_FUZZIFY
+
+DEFUZZIFY Risk		// Defzzzify output variable 'tip' : {'cheap', 'average', 'generous' }
+	TERM normal := (0,0) (5,1) (10,0);
+	TERM az_riskli := (10,0) (15,1) (20,0);
+	TERM riskli := (20,0) (25,1) (30,0);
+	
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF alt IS dusuk THEN Risk IS az_riskli;
+	RULE 2 : IF alt IS yüksek THEN Risk IS riskli;
+	RULE 3 : IF alt IS dusuk THEN Risk IS az_riskli;
+	RULE 4 : IF ast IS dusuk THEN Risk IS riskli;
+	RULE 5 : IF ggt IS dusuk THEN Risk IS riskli;
+	RULE 6 : IF alt IS dusuk AND ast IS yüksek THEN Risk IS riskli;
+	RULE 7 : IF alt IS dusuk THEN Risk IS az_riskli;
+	RULE 8 : IF alt IS dusuk THEN Risk IS az_riskli;
+	RULE 9 : IF ast IS yuksek AND alt IS yüksek AND ggt IS yüksek THEN Risk IS riskli;
+	RULE 10 : IF ast IS ortalama AND alt IS ortalama AND ggt IS ortalama THEN Risk IS az_riskli;
+	RULE 11: IF ast IS yuksek AND alt IS yüksek AND ggt IS ortalama THEN Risk IS riskli;
+	RULE 12: IF ast IS ortalama AND alt IS ortalama AND ggt IS düsük THEN Risk IS az_riskli;
+	RULE 13: IF ast IS dusuk AND alt IS dusuk AND ggt IS dusuk THEN Risk IS riskli;
+	
+
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

@@ -29,12 +29,11 @@ class NewRoomFragment : DialogFragment() {
     lateinit var chatRoomName: EditText
     lateinit var chatRoomAdd: Button
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+       // İlgil ilayout java koduna dönüştürülüyor.
         var view = inflater!!.inflate(R.layout.fragment_new_room2, container, false )
         chatRoomName= view.findViewById(R.id.etRoom)
         chatRoomAdd=view.findViewById(R.id.btnNewRoom)
@@ -45,11 +44,14 @@ class NewRoomFragment : DialogFragment() {
                 var roomId=ref.child("ChatRoom").push().key
                 var newRoom = ChatRoom()
                 newRoom.author_id=FirebaseAuth.getInstance().currentUser?.uid
+                //İlgili kullanıcının işlemi yapılıyor.
                 newRoom.chatRoomName=chatRoomName.text.toString()
                 newRoom.room_id=roomId
                 ref.child("ChatRoom").child(roomId.toString()).setValue(newRoom)
+                //Odaya benzersiz key atanıyor.
                 var MesajId=ref.child("ChatRoom").push().key
                 var karsilamaMesaji=RoomMessages()
+                //karşılama mesajı oluşturuluyor..
                 karsilamaMesaji.mesaj="sohbet odasına hoşgeldiniz"
                 karsilamaMesaji.timestamp=getMesajTarih()
                 ref.child("ChatRoom")
@@ -59,17 +61,18 @@ class NewRoomFragment : DialogFragment() {
                     .setValue(karsilamaMesaji)
                 Toast.makeText(activity,"sohbet odası başarıyla oluşturuldu",Toast.LENGTH_SHORT).show()
                 (activity as MessageActivity).init()
+                //Dialog kapatılıyor..
                 dialog?.dismiss()
             }else
             {
                 Toast.makeText(activity,"sohbet odası adını yazınız",Toast.LENGTH_SHORT).show()
             }
         }
-
+//View geri dönderiliyor.
         return view
 
     }
-
+//O anki tarih javada düzgün formata dönüştülüyor
 private fun getMesajTarih() :String{
     var sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale("tr"))
     return sdf.format(Date())

@@ -27,17 +27,20 @@ import kotlin.math.log
 
 class MessageActivity : AppCompatActivity() {
    lateinit  var tumsohbetOdalari:ArrayList<ChatRoom>
+    //sohbet odaları ilgili modele tanımlandı.
     private val ACTİVİTY_NO=4
     private val TAG = "HomeActivity"
+    //log kayıtlarım için etiket
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
+        //sohbet odalarını listelemek için iç içe fonksiyonların başlangıç noktası
         init()
         setupNavigationView()
+        //fab buton event işlemi
         fabAddRoom.setOnClickListener {
             var dialog= NewRoomFragment()
             dialog.show(supportFragmentManager,"goster")
-
         }
     }
     fun setupNavigationView(){
@@ -52,13 +55,13 @@ class MessageActivity : AppCompatActivity() {
     }
     private fun tumSohbetOdalariniGetir(){
         tumsohbetOdalari=ArrayList<ChatRoom>()
+        //tüm odaları listelemek için
         var ref = FirebaseDatabase.getInstance().reference
         var sorgu=ref.child("ChatRoom").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
             }
-
-
+            //Her değişimde işlenecek fonksiyon
             override fun onDataChange(p0: DataSnapshot) {
                 for(teksohbetOdasi in p0!!.children){
                     var oAnkiSohbetOdasi=ChatRoom()
@@ -66,39 +69,39 @@ class MessageActivity : AppCompatActivity() {
                     oAnkiSohbetOdasi.room_id=nesneMap.get("room_id").toString()
                     oAnkiSohbetOdasi.chatRoomName=nesneMap.get("chatRoomName").toString()
                     oAnkiSohbetOdasi.author_id=nesneMap.get("author_id").toString()
-
+//İç İçe forla düğümün içinde düğüm olduğu için Modeldeki ilgili yerler ile veriler eşleştiriliyor.
                     var tumMesajlar=ArrayList<RoomMessages>()
                     for(mesajlar in teksohbetOdasi.child("chatroom_messages").children){
-var okunanMesaj=RoomMessages()
+                        var okunanMesaj=RoomMessages()
+                        //tek tek okunuyor ilgili yerlere basılıyor
                         okunanMesaj.timestamp=mesajlar.getValue(RoomMessages::class.java)?.timestamp
                         okunanMesaj.adi=mesajlar.getValue(RoomMessages::class.java)?.adi
                         okunanMesaj.mesaj=mesajlar.getValue(RoomMessages::class.java)?.mesaj
                         okunanMesaj.kullanici_id=mesajlar.getValue(RoomMessages::class.java)?.kullanici_id
                         okunanMesaj.profil_resim=mesajlar.getValue(RoomMessages::class.java)?.profil_resim
                         tumMesajlar.add(okunanMesaj)
-
-
                     }
-                   /* oAnkiSohbetOdasi.author_id=teksohbetOdasi.getValue(ChatRoom::class.java)?.author_id
-                    oAnkiSohbetOdasi.chatRoomName=teksohbetOdasi.getValue(ChatRoom::class.java)?.chatRoomName
-                    oAnkiSohbetOdasi.room_id=teksohbetOdasi.getValue(ChatRoom::class.java)?.room_id*/
-Log.e("test",oAnkiSohbetOdasi.toString())
+
+                    Log.e("test",oAnkiSohbetOdasi.toString())
                     oAnkiSohbetOdasi.chatroom_messages=tumMesajlar
                     tumsohbetOdalari.add(oAnkiSohbetOdasi)
                 }
-                Toast.makeText(this@MessageActivity,"tüm sohbet odası sayısı"+tumsohbetOdalari.size,Toast.LENGTH_SHORT).show()
-             sohbetOdalariListele()
+                //Toplam sohbet odasının değeri tost mesajla gösteriliyor.
+                Toast.makeText(this@MessageActivity,"Tüm sohbet odası sayısı "+tumsohbetOdalari.size,Toast.LENGTH_SHORT).show()
+
+                sohbetOdalariListele()
             }
-
         })
-
     }
+    //adaptor sınıfına oluşturulan nesnenin gönderildiği yer..
     private fun sohbetOdalariListele(){
         var adapter = ChatRoomRcyViewAdapter(this@MessageActivity,tumsohbetOdalari)
         rvSohbetOdalari.adapter=adapter
+        //RC içinLinear tipini belirliyoruz.
         rvSohbetOdalari.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
     }
+    //Dış sınıftan erişilecek İlgili kayıt kime ait olduğu belirlendikten sonra siliniyor..
     fun sohbetOdasiSil(silinecekOdaid:String){
         var ref= FirebaseDatabase.getInstance().reference
         ref.child("ChatRoom").child(silinecekOdaid)

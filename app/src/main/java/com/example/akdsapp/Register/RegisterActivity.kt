@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.akdsapp.Login.LoginActivity
 import com.example.akdsapp.MainActivity
 import com.example.akdsapp.R
 import com.google.android.gms.tasks.OnCompleteListener
@@ -38,6 +39,9 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, 0)
+        }
+        tvGirisYap.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
     private fun registerUser () {

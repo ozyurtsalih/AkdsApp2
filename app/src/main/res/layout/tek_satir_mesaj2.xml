@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Mesaj"
         android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext_register_login"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yazar"
+        android:background="@drawable/rounded_edittext_register_login"
         app:layout_constraintBottom_toTopOf="@+id/username_textview_new_message"
         tools:layout_editor_absoluteX="276dp" />
 
