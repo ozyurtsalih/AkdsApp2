@@ -33,10 +33,10 @@
         android:id="@+id/tvAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yazar"
         android:background="@drawable/rounded_edittext_register_login"
+        android:text="Yazar"
         app:layout_constraintBottom_toTopOf="@+id/username_textview_new_message"
-        tools:layout_editor_absoluteX="276dp" />
+        app:layout_constraintEnd_toEndOf="@+id/username_textview_new_message" />
 
     <TextView
         android:id="@+id/tvTarih"
