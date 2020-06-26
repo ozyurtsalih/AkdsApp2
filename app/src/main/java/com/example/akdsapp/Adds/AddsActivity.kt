@@ -81,7 +81,7 @@ class AddsActivity : AppCompatActivity() {
 class UserItem(val tahlil: Tahlils): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.tvtip.text= tahlil.type
-        viewHolder.itemView.tvOlusturanAdi.text= tahlil.Name
+        //viewHolder.itemView.tvOlusturanAdi.text= tahlil.Name
         viewHolder.itemView.tvRisk.text= tahlil.risksonuc
         viewHolder.itemView.tvtime.text= tahlil.tarih
 

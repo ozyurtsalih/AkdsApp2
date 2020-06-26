@@ -11,6 +11,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="412dp"
         android:layout_height="102dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         card_view:cardCornerRadius="5dp"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
@@ -55,16 +57,6 @@
                     android:text="Risk Durumu"
                     android:textSize="15sp"
                     android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/tvOlusturanAdi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Yazar"
-                    android:textColor="#616161"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
 
 
             </LinearLayout>

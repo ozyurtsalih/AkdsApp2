@@ -14,7 +14,7 @@ import com.example.akdsapp.utils.SohbetMesajRcyViewAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_message_room.*
-import kotlinx.android.synthetic.main.activity_tests.*
+
 import kotlinx.android.synthetic.main.tek_satir_chat_rooms.*
 import kotlinx.android.synthetic.main.tek_satir_mesaj.*
 import java.text.SimpleDateFormat
@@ -38,6 +38,10 @@ class MessageRoomActivity : AppCompatActivity() {
         baslatFirebaseAuthListener()
         sohbetOdasiniOgren()
         init()
+           imgTabCamera .setOnClickListener {
+           //Önceki activitye dönüş
+               this.finish()
+           }
 
     }
     private fun init(){
