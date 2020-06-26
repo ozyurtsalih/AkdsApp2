@@ -85,9 +85,6 @@ class UserItem(val tahlil: Tahlils): Item<GroupieViewHolder>() {
         viewHolder.itemView.tvRisk.text= tahlil.risksonuc
         viewHolder.itemView.tvtime.text= tahlil.tarih
 
-
-
-
     }
 
     override fun getLayout(): Int {
