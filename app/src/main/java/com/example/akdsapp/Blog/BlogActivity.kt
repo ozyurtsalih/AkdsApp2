@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.akdsapp.Login.LoginActivity
 import com.example.akdsapp.Models.Blog
 import com.example.akdsapp.Models.Users
 import com.example.akdsapp.R
 import com.example.akdsapp.utils.BottomnavigationViewHelper
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -17,7 +19,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_blog.*
-import kotlinx.android.synthetic.main.activity_main.*
+
 import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
 import kotlinx.android.synthetic.main.tahlils_row.view.*
 import kotlinx.android.synthetic.main.tek_blog_row.view.*
@@ -34,6 +36,12 @@ class BlogActivity : AppCompatActivity() {
         fabAddRoom2.setOnClickListener {
             val intent = Intent(this, NewBlogsActivity::class.java)
             //blog ekleme intenti başlatılmak üzere java koduna dönüştürülüyor..
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)}
+
+        imgTabDirectMessage.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)}
     }
@@ -78,6 +86,8 @@ class UserItem(val blog: Blog): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.title.text = blog.title
         viewHolder.itemView.desc.text = blog.desc
+        viewHolder.itemView.author.text= blog.name
+        viewHolder.itemView.publishedAt.text=blog.tarih
         Picasso.get().load(blog.imgUrl).into(viewHolder.itemView.img)
     }
     override fun getLayout(): Int {

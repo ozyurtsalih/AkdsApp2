@@ -1,8 +1,10 @@
 package com.example.akdsapp.Adds
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.akdsapp.Login.LoginActivity
 import com.example.akdsapp.Models.Tahlils
 import com.example.akdsapp.Models.Users
 import com.example.akdsapp.R
@@ -18,8 +20,10 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_adds.*
-
+import kotlinx.android.synthetic.main.activity_adds.imgTabDirectMessage
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
+
 import kotlinx.android.synthetic.main.tahlils_row.view.*
 import kotlinx.android.synthetic.main.tek_satir_sonuc.view.*
 
@@ -32,6 +36,10 @@ class AddsActivity : AppCompatActivity() {
         setupNavigationView()
         //Kullanıcıya ait sonuçları listelemek için kullanılan fonksiyonu çağırıyoruz.
         fetchUsers()
+        imgTabDirectMessage.setOnClickListener {FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)}
     }
     // Navigasyon menusu fonksiyonu
     fun setupNavigationView(){

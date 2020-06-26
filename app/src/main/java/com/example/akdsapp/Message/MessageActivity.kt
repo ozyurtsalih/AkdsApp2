@@ -1,25 +1,28 @@
 package com.example.akdsapp.Message
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.akdsapp.Login.LoginActivity
 import com.example.akdsapp.Models.ChatRoom
 import com.example.akdsapp.Models.RoomMessages
 import com.example.akdsapp.R
 import com.example.akdsapp.utils.ChatRoomRcyViewAdapter
 import com.example.akdsapp.utils.BottomnavigationViewHelper
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_main.*
+
 import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
 import kotlinx.android.synthetic.main.activity_message.*
-import kotlinx.android.synthetic.main.activity_tests.*
+
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -42,6 +45,11 @@ class MessageActivity : AppCompatActivity() {
             var dialog= NewRoomFragment()
             dialog.show(supportFragmentManager,"goster")
         }
+        imgTabDirectMessage.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)}
     }
     fun setupNavigationView(){
         BottomnavigationViewHelper.setupBottomNavigationView(bottomNavigationView)

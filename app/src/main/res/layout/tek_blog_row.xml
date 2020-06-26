@@ -109,38 +109,6 @@
                 android:text="Desc"
                 />
 
-            <TextView
-                android:id="@+id/source"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@id/desc"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-light"
-                android:textStyle="bold"
-                android:textColor="@color/colorTextTitle"
-                android:maxLines="1"
-                android:drawablePadding="10dp"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:text="Source" />
-
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@id/desc"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@id/source"
-                android:maxLines="1"
-                android:drawablePadding="10dp"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:text="Time" />
-
 
         </RelativeLayout>
 

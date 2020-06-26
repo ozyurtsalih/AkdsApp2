@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_new_blogs.*
+import java.text.SimpleDateFormat
 
 import java.util.*
 
@@ -50,14 +51,17 @@ class NewBlogsActivity : AppCompatActivity() {
         val descTxt = findViewById<View>(R.id.etdesc) as EditText
         val titleTxt = findViewById<View>(R.id.ettitle) as EditText
 //bulunan nesnelerin içeriği değişkenlere eşitleniyor.
-
+        var userid= FirebaseAuth.getInstance().currentUser?.email
         var desc = descTxt.text.toString()
         var title = titleTxt.text.toString()
+        var tarih=getMesajTarih().toString()
         // Blog düğümüne yeni anahtar oluşturuluyor..
         var blogkey=mDatabase.push().key
         // Oluşturulan düğüme tanımlamalar yapılıyor.
         mDatabase.child(blogkey!!).child("desc").setValue(desc)
         mDatabase.child(blogkey!!).child("title").setValue(title)
+        mDatabase.child(blogkey!!).child("name").setValue(userid)
+        mDatabase.child(blogkey!!).child("tarih").setValue(tarih)
         //seçilen resim iterator ile firebaseye upload ediliyor ve ordan tekrar alınıp resim alanında gösteriliyor ilgili linki ile.
         if (selectedPhotoUri != null) {
             val filename = UUID.randomUUID().toString()
@@ -106,5 +110,8 @@ class NewBlogsActivity : AppCompatActivity() {
 
         }
     }
-
+    private fun getMesajTarih() :String{
+        var sdf = SimpleDateFormat("yyyy-MM-dd", Locale("tr"))
+        return sdf.format(Date())
+    }
 }

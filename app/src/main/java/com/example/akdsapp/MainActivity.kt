@@ -31,13 +31,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavigationView()
         verifyUserIsLoggedIn()
-
+//Sistemden çıkış butonu..
         imgTabDirectMessage.setOnClickListener {FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)}
 
     }
+    //Kullanıcı girişi kontrol diliyor..
     private fun verifyUserIsLoggedIn() {
         val uid = FirebaseAuth.getInstance().uid
         if (uid == null) {
@@ -54,8 +55,7 @@ class MainActivity : AppCompatActivity() {
         menuItem.setChecked(true)
     }
     private fun fetchUsers() {
-       // val user = mAuth.currentUser
-        //val uid = user!!.uid
+
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
 
